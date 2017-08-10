@@ -1,0 +1,107 @@
+﻿@using MvcNorth.Models
+@model Product
+@{
+    ViewBag.Title = $"{Model.ProductName}- Ürünü Düzenle";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<div class="col-md-8 col-md-offset-2">
+    @using (Html.BeginForm("Duzenle", "Urun", FormMethod.Post, new { @class = "form-horizontal" }))
+
+    { <form class="form-horizontal">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>สมัครสมาชิก</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username">ชื่อผู้ใช้</label>
+                <div class="col-md-4">
+                    <input id="username" name="username" type="text" placeholder="ชื่อผู้ใช้" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">รหัสผ่าน</label>
+                <div class="col-md-4">
+                    <input id="password" name="password" type="password" placeholder="รหัสผ่าน" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="passwordแนื">ยืนยันรหัสผ่าน</label>
+                <div class="col-md-4">
+                    <input id="passwordแนื" name="passwordแนื" type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control input-md">
+
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="namำ">ชื่อ-สกุล</label>
+                <div class="col-md-4">
+                    <input id="namำ" name="namำ" type="text" placeholder="ชื่อ-สกุล" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tel">โทรศัพท์</label>
+                <div class="col-md-4">
+                    <input id="tel" name="tel" type="text" placeholder="โทรศัพท์" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email">E-Mail</label>
+                <div class="col-md-4">
+                    <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Button Drop Down -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="gred">เพศ</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input id="gred" name="gred" class="form-control" placeholder="เพศ" type="text" required="">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                เลือกเพส
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#">ชาย</a></li>
+                                <li><a href="#">หญิง</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="birth">วันกิด</label>
+                <div class="col-md-4">
+                    <input id="birth" name="birth" type="text" placeholder="วันเกิด" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="address">ที่อยู่</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="address" name="address">ที่อยู่</textarea>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="regis"></label>
+                <div class="col-md-4">
+                    <button id="regis" name="regis" class="btn btn-success">สมัครสมาชิก</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>}
+
+</div>
+

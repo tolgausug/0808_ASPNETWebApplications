@@ -1,0 +1,44 @@
+﻿@using MvcNorth.Models;
+@model List<Product>
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<div class="col-md-6 col-md-offset-3">
+    <span class="text-success">@Model.FirstOrDefault().Category.CategoryName</span>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th align="left">#</th>
+                <th>Ürün Adı</th>
+                <th>Fiyatı</th>
+                <th>Stok</th>
+                <th>Satışta Mı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int sayac = 0;}
+            @foreach (var item in Model)
+            {
+                sayac++;
+                <tr>
+                    <td>@sayac</td>
+                    <td>@item.ProductName</td>
+                    <td>@($"{item.UnitPrice:c2}")</td>
+                    <td>@item.UnitsInStock</td>
+                    <td>@(item.Discontinued ? Html.Raw("<span class='text-danger'>Satışta Değil</span>") : Html.Raw("<span class='text-success'>Satışta</span>") )</td>
+                    @if (!item.Discontinued)
+                    {
+                        <td> <a href="@Url.Action("Siparis","Siparis",new { id = item.ProductID})" class="btn btn-block btn-success ">Sipariş Ver</a></td>
+                    }
+                    else
+                    {
+                        <td class ="btn btn-block btn-warning disabled">Yetersiz Stok!</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,34 @@
+﻿@using MvcNorth.Models;
+@model Product
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<div class="col-md-6 col-md-offset-3">
+    <span class="text-success">@Model.FirstOrDefault().ProductName</span>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Fiyatı</th>
+                <th>Stok Durumu</th>
+                <th>İstenen Adet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.FirstOrDefault().ProductName</td>
+                <td>@Model.FirstOrDefault().UnitPrice</td>
+                <td>@Model.FirstOrDefault().UnitsInStock</td>
+                <td>
+                    <select size="1">
+                        @for (int i = 0; i < Model.FirstOrDefault().UnitsInStock.Value; i++)
+                        {
+                            <option>i</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
